@@ -5,6 +5,8 @@
 - Do NOT include `Co-Authored-By` lines referencing AI tools in commit messages.
 - Do NOT include "Generated with Claude Code" or similar AI attribution in PR descriptions.
 - Keep commit messages compact. Subject <= 72 chars. Add a body only when the why is not obvious from the diff.
+- For commit-push requests, verify the relevant Gradle task first, inspect `git diff --stat`, commit with an English subject, and push the current branch.
+- Do not include unrelated generated files or local wrapper churn in commit-push changes.
 
 ## Code Style
 
@@ -23,6 +25,7 @@
 
 - Run `./gradlew :app:assembleDebug build` before committing build-related changes.
 - Run `./gradlew publishToMavenLocal` before Maven Central release changes.
+- Repo-local Codex skills live under `.codex/skills/`; use them for commit-push, release, and CodeRabbit review workflows when relevant.
 
 ## Release
 

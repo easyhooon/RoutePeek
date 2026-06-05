@@ -1,7 +1,6 @@
 package com.easyhooon.routepeek.sample
 
 import android.annotation.SuppressLint
-import android.graphics.Bitmap
 import android.os.Bundle
 import android.webkit.WebView
 import android.webkit.WebViewClient
@@ -52,14 +51,8 @@ private fun RoutePeekSampleScreen() {
                         onUrlChanged = { currentUrl = it },
                     )
                     webViewClient = object : WebViewClient() {
-                        override fun onPageStarted(view: WebView?, url: String?, favicon: Bitmap?) {
-                            super.onPageStarted(view, url, favicon)
-                            url?.let { currentUrl = it }
-                        }
-
                         override fun onPageFinished(view: WebView?, url: String?) {
                             super.onPageFinished(view, url)
-                            url?.let { currentUrl = it }
                             RoutePeek.injectRouteListener(view)
                         }
                     }
