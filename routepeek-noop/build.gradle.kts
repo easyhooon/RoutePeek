@@ -11,6 +11,7 @@ android {
     defaultConfig {
         minSdk = 26
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        buildConfigField("String", "ROUTEPEEK_VERSION", "\"${libs.versions.routepeek.get()}\"")
     }
 
     compileOptions {
@@ -20,6 +21,7 @@ android {
 
     buildFeatures {
         compose = true
+        buildConfig = true
     }
 }
 
@@ -65,4 +67,7 @@ mavenPublishing {
             developerConnection.set("scm:git:ssh://git@github.com/easyhooon/RoutePeek.git")
         }
     }
+
+    publishToMavenCentral()
+    signAllPublications()
 }

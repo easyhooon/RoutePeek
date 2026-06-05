@@ -7,6 +7,8 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 
 object RoutePeek {
+    val version: String = BuildConfig.ROUTEPEEK_VERSION
+
     fun install(
         webView: WebView,
         onUrlChanged: (String) -> Unit,

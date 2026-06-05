@@ -23,6 +23,7 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "RoutePeek"
-include(":sample")
+include(":app")
+project(":app").projectDir = file("sample")
 include(":routepeek")
 include(":routepeek-noop")

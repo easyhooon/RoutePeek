@@ -12,6 +12,7 @@ android {
         minSdk = 26
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
+        buildConfigField("String", "ROUTEPEEK_VERSION", "\"${libs.versions.routepeek.get()}\"")
     }
 
     compileOptions {
@@ -21,6 +22,7 @@ android {
 
     buildFeatures {
         compose = true
+        buildConfig = true
     }
 }
 
@@ -71,4 +73,7 @@ mavenPublishing {
             developerConnection.set("scm:git:ssh://git@github.com/easyhooon/RoutePeek.git")
         }
     }
+
+    publishToMavenCentral()
+    signAllPublications()
 }

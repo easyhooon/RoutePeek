@@ -54,6 +54,7 @@ import kotlin.math.roundToInt
 
 object RoutePeek {
     private const val JS_INTERFACE_NAME = "RoutePeek"
+    val version: String = BuildConfig.ROUTEPEEK_VERSION
 
     @SuppressLint("JavascriptInterface")
     fun install(
