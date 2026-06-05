@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body { font-family: sans-serif; margin: 24px; color: #182026; }
+    h1 { font-size: 24px; margin: 0 0 8px; }
+    p { line-height: 1.5; }
+    button { display: block; width: 100%; margin: 10px 0; padding: 14px; font-size: 15px; border: 0; border-radius: 10px; background: #0f766e; color: white; }
+    code { display: block; padding: 12px; border-radius: 10px; background: #edf2f7; word-break: break-all; }
+  </style>
+</head>
+<body>
+  <h1>RoutePeek Sample</h1>
+  <p>Tap the buttons below to change the WebView route without reloading the document.</p>
+  <code id="current"></code>
+
+  <button onclick="go('/home')">pushState: /home</button>
+  <button onclick="go('/profile/42?tab=records')">pushState: /profile/42?tab=records</button>
+  <button onclick="replace('/settings/notifications')">replaceState: /settings/notifications</button>
+  <button onclick="location.hash = '#section-' + Math.floor(Math.random() * 100)">hashchange</button>
+  <button onclick="history.back()">history.back()</button>
+
+  <script>
+    function render() {
+      document.getElementById('current').textContent = location.href;
+    }
+    function go(path) {
+      history.pushState({}, '', path);
+      render();
+    }
+    function replace(path) {
+      history.replaceState({}, '', path);
+      render();
+    }
+    window.addEventListener('popstate', render);
+    window.addEventListener('hashchange', render);
+    render();
+  </script>
+</body>
+</html>
