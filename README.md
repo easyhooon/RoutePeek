@@ -7,6 +7,27 @@ It listens to WebView navigation and SPA-style route changes such as `pushState`
 The overlay displays the route portion on screen to keep the UI compact. Copy and share actions still use the full URL, including the domain.
 Long-press the collapsed overlay button and drag it into the bottom-center delete target to hide the overlay.
 
+## Screenshots
+
+<table>
+  <tr>
+    <td align="center"><b>Collapsed Route Button</b></td>
+    <td align="center"><b>Expanded Route Panel</b></td>
+  </tr>
+  <tr>
+    <td><img src="screenshots/collapsed-overlay.jpeg" width="270" /></td>
+    <td><img src="screenshots/expand-route-panel.jpeg" width="270" /></td>
+  </tr>
+  <tr>
+    <td align="center"><b>Copy Feedback</b></td>
+    <td align="center"><b>Dismiss Target</b></td>
+  </tr>
+  <tr>
+    <td><img src="screenshots/copy-feedback.jpeg" width="270" /></td>
+    <td><img src="screenshots/dismiss-target.jpeg" width="270" /></td>
+  </tr>
+</table>
+
 ## Modules
 
 - `routepeek`: debug implementation with WebView route tracking and Compose overlay UI
