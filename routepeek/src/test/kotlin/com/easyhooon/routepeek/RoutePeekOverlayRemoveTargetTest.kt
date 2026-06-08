@@ -5,7 +5,7 @@ import org.junit.Assert.assertFalse
 import org.junit.Assert.assertTrue
 import org.junit.Test
 
-class RoutePeekOverlayHitTestTest {
+class RoutePeekOverlayRemoveTargetTest {
     @Test
     fun returnsTrueWhenCollapsedCenterIsInsideRemoveTarget() {
         val collapsedBounds = Rect(
