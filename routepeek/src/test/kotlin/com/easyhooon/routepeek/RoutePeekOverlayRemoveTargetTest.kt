@@ -5,6 +5,7 @@ import org.junit.Assert.assertFalse
 import org.junit.Assert.assertTrue
 import org.junit.Test
 
+// JVM unit tests for the remove-target hit-test helper, not Compose UI gesture tests.
 class RoutePeekOverlayRemoveTargetTest {
     @Test
     fun returnsTrueWhenCollapsedCenterIsInsideRemoveTarget() {
