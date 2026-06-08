@@ -184,6 +184,7 @@ fun RoutePeekOverlay(
     val removeTargetActive = collapsedDragging &&
         isCollapsedInRemoveTarget(collapsedBounds, removeTargetBounds)
     val removeTargetSize = if (removeTargetActive) 76.dp else 64.dp
+    val removeTargetContainerSize = if (removeTargetActive) 82.dp else 64.dp
     val removeTargetIconSize = if (removeTargetActive) 34.dp else 28.dp
     val collapsedDragModifier = Modifier.pointerInput(Unit) {
         detectDragGesturesAfterLongPress(
@@ -232,41 +233,46 @@ fun RoutePeekOverlay(
     Box(modifier = Modifier.fillMaxSize()) {
         if (!expanded) {
             if (collapsedDragging) {
-                Surface(
+                Box(
                     modifier = Modifier
                         .align(Alignment.BottomCenter)
                         .windowInsetsPadding(WindowInsets.safeDrawing)
                         .padding(bottom = 28.dp)
-                        .size(removeTargetSize)
+                        .size(removeTargetContainerSize)
                         .onGloballyPositioned { coordinates ->
                             removeTargetBounds = coordinates.boundsInWindow()
                         }
                         .zIndex(9f),
-                    shape = MaterialTheme.shapes.extraLarge,
-                    color = if (removeTargetActive) {
-                        MaterialTheme.colorScheme.error
-                    } else {
-                        MaterialTheme.colorScheme.errorContainer.copy(alpha = 0.94f)
-                    },
-                    contentColor = if (removeTargetActive) {
-                        MaterialTheme.colorScheme.onError
-                    } else {
-                        MaterialTheme.colorScheme.onErrorContainer
-                    },
-                    tonalElevation = if (removeTargetActive) 12.dp else 8.dp,
-                    shadowElevation = 0.dp,
-                    border = if (removeTargetActive) {
-                        BorderStroke(3.dp, MaterialTheme.colorScheme.onError)
-                    } else {
-                        null
-                    },
+                    contentAlignment = Alignment.Center,
                 ) {
-                    Box(contentAlignment = Alignment.Center) {
-                        Icon(
-                            modifier = Modifier.size(removeTargetIconSize),
-                            imageVector = Icons.Default.Delete,
-                            contentDescription = config.removeTargetContentDescription,
-                        )
+                    Surface(
+                        modifier = Modifier.size(removeTargetSize),
+                        shape = MaterialTheme.shapes.extraLarge,
+                        color = if (removeTargetActive) {
+                            MaterialTheme.colorScheme.error
+                        } else {
+                            MaterialTheme.colorScheme.errorContainer.copy(alpha = 0.94f)
+                        },
+                        contentColor = if (removeTargetActive) {
+                            MaterialTheme.colorScheme.onError
+                        } else {
+                            MaterialTheme.colorScheme.onErrorContainer
+                        },
+                        tonalElevation = if (removeTargetActive) 12.dp else 8.dp,
+                        shadowElevation = 0.dp,
+                        border = if (removeTargetActive) {
+                            BorderStroke(3.dp, MaterialTheme.colorScheme.onError)
+                        } else {
+                            null
+                        },
+                    ) {
+                        Box(contentAlignment = Alignment.Center) {
+                            Icon(
+                                modifier = Modifier.size(removeTargetIconSize),
+                                imageVector = Icons.Default.Delete,
+                                contentDescription = config.removeTargetContentDescription,
+                            )
+                        }
                     }
                 }
             }
