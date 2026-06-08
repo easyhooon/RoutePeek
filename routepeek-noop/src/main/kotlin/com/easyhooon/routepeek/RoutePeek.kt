@@ -22,6 +22,7 @@ data class RoutePeekOverlayConfig(
     val copyLabel: String = "URL",
     val copyToastText: String = "URL이 복사되었습니다",
     val shareChooserTitle: String = "URL 공유",
+    val removeTargetContentDescription: String = "RoutePeek 숨기기",
 )
 
 @Composable
