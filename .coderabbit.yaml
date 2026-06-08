@@ -1,0 +1,36 @@
+# yaml-language-server: $schema=https://coderabbit.ai/integrations/schema.v2.json
+language: "ko-KR"
+tone_instructions: "Be concise, direct, and technical. Prioritize actionable correctness, API compatibility, tests, and Android/Compose lifecycle risks over style nits."
+early_access: false
+
+reviews:
+  profile: "chill"
+  request_changes_workflow: false
+  high_level_summary: true
+  review_status: true
+  review_details: false
+  collapse_walkthrough: true
+  changed_files_summary: true
+  sequence_diagrams: false
+  poem: false
+  auto_review:
+    enabled: true
+    drafts: false
+  path_filters:
+    - "!**/build/**"
+    - "!**/.gradle/**"
+    - "!**/*.apk"
+    - "!**/*.aar"
+    - "!**/*.keystore"
+    - "!**/*.jks"
+    - "!gradle/wrapper/gradle-wrapper.jar"
+  path_instructions:
+    - path: "**/*.kt"
+      instructions: "Review Kotlin and Jetpack Compose changes for correctness, lifecycle safety, pointer-input behavior, state persistence, recomposition risk, and source compatibility between :routepeek and :routepeek-noop."
+    - path: "**/*.gradle.kts"
+      instructions: "Review Gradle changes for dependency scope, publishing metadata, version consistency with gradle/libs.versions.toml, and accidental credential or local-environment leakage."
+    - path: "README.md"
+      instructions: "Review documentation for API accuracy, setup correctness, and consistency with the current module names and Gradle paths."
+
+chat:
+  auto_reply: true
