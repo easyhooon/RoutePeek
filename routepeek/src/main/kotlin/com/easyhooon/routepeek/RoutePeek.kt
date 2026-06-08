@@ -254,7 +254,7 @@ fun RoutePeekOverlay(
                         MaterialTheme.colorScheme.onErrorContainer
                     },
                     tonalElevation = if (removeTargetActive) 12.dp else 8.dp,
-                    shadowElevation = if (removeTargetActive) 16.dp else 8.dp,
+                    shadowElevation = 0.dp,
                     border = if (removeTargetActive) {
                         BorderStroke(3.dp, MaterialTheme.colorScheme.onError)
                     } else {
