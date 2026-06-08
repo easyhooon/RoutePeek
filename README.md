@@ -5,6 +5,7 @@ RoutePeek is a tiny Android library for inspecting the current route inside a We
 It listens to WebView navigation and SPA-style route changes such as `pushState`, `replaceState`, `popstate`, and `hashchange`, then lets your app show the current route through a Compose overlay. The library only provides the WebView hook API and the Compose overlay API. It does not create or manage a floating window automatically, so the host app decides when and where to show it.
 
 The overlay displays the route portion on screen to keep the UI compact. Copy and share actions still use the full URL, including the domain.
+Long-press the collapsed overlay button and drag it into the bottom-center delete target to hide the overlay.
 
 ## Modules
 
