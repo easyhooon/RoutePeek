@@ -5,7 +5,7 @@
 
     <application
         android:allowBackup="false"
-        android:label="RoutePeek Sample"
+        android:label="RoutePeek"
         android:supportsRtl="true"
         android:theme="@style/Theme.RoutePeek.Sample">
         <activity
