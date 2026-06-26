@@ -100,6 +100,24 @@ Box(Modifier.fillMaxSize()) {
 }
 ```
 
+## Limitations
+
+RoutePeek tracks WebView navigation and SPA route changes that update browser
+history, such as `pushState`, `replaceState`, `popstate`, and `hashchange`.
+
+It cannot detect UI-only state changes inside the web app when the URL does not
+change. For example, opening or closing a React modal, switching internal tabs,
+or moving between screens represented only by web app state will not trigger
+RoutePeek because Android WebView does not receive a navigation or history event
+for those changes.
+
+If you need to observe those state-only screen changes, emit an explicit event
+from the web app to your native bridge or report a route-like value yourself:
+
+```js
+window.RoutePeek?.onRouteChanged(`${window.location.href}#fortune-content`)
+```
+
 ## License
 
 Apache License 2.0
